@@ -5,19 +5,20 @@
 #define COLS 80
 
 int main() {
-    srand(time(0));
+    srand(time(NULL)); /* for new values of ay/ax each new program run */
     char dog = '@', bone = 'I';
     int c;
     int y = 5, x = 10; /* dog position */
-    int ay = (rand() % (ROWS-2)) + 1; /* bone */
-    int ax = (rand() % (COLS-2)) + 1; /* position */
+    /* bone position */
+    int ay = (rand() % (ROWS-2)) + 1;
+    int ax = (rand() % (COLS-2)) + 1;
     int score = 0;
     char map[ROWS][COLS];
 
     initscr();
     keypad(stdscr, 1);
     noecho();
-    curs_set(false);
+    curs_set(0);
     do {
         srand(time(0)); /* for random */
         /* print a map */
@@ -49,7 +50,7 @@ int main() {
 
         mvaddch(ay, ax, bone);
         mvaddch(y, x, dog);
-		mvprintw(ROWS, 0, "move - arrows, exit - F1");
+	mvprintw(ROWS, 0, "move - arrows, exit - F1");
         mvprintw(ROWS + 2, 0, "Score: %d", score);
     } while ((c = getch()) != KEY_F(1));
     endwin();
