@@ -1,15 +1,16 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
-#define ROWS 10
-#define COLS 21
+#define ROWS 21
+#define COLS 80
 
 int main() {
 	srand(time(0));
-    char a = '@', bone = 'I';
+    char dog = '@', bone = 'I';
     int c;
     int y = 5, x = 10; /* dog position */
-    int ay = (rand() % 8) + 1, ax = (rand() % 18) + 1; /* bone position */
+    int ay = (rand() % (ROWS-2)) + 1; /* bone */
+	int ax = (rand() % (COLS-2)) + 1; /* position */
     int score = 0;
     char map[ROWS][COLS];
 
@@ -41,15 +42,15 @@ int main() {
 
         /* if the dog eats a bone */
         if ((y == ay) && (x == ax)) {
-            ay = (rand() % 8) + 1;
-            ax = (rand() % 18) + 1;
+            ay = (rand() % (ROWS-2)) + 1;
+            ax = (rand() % (COLS-2)) + 1;
             ++score;
         }
 
         mvaddch(ay, ax, bone);
-        mvaddch(y, x, a);
-        mvprintw(ROWS + 1, 0, "Score: %d", score);
-        mvprintw(ROWS + 2, 0, "move - arrows, exit - F1");
+        mvaddch(y, x, dog);
+		mvprintw(ROWS, 0, "move - arrows, exit - F1");
+        mvprintw(ROWS + 2, 0, "Score: %d", score);
     } while ((c = getch()) != KEY_F(1));
     endwin();
 	
