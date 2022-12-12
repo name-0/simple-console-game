@@ -5,12 +5,12 @@
 #define COLS 80
 
 int main() {
-	srand(time(0));
+    srand(time(0));
     char dog = '@', bone = 'I';
     int c;
     int y = 5, x = 10; /* dog position */
     int ay = (rand() % (ROWS-2)) + 1; /* bone */
-	int ax = (rand() % (COLS-2)) + 1; /* position */
+    int ax = (rand() % (COLS-2)) + 1; /* position */
     int score = 0;
     char map[ROWS][COLS];
 
