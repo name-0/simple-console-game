@@ -51,7 +51,7 @@ int main() {
         mvaddch(y, x, a);
         mvprintw(ROWS + 1, 0, "Score: %d", score);
         mvprintw(ROWS + 2, 0, "move - arrows, exit - F1");
-    } while ((c = getch()) != KEY_F(1)); /* escape */
+    } while ((c = getch()) != KEY_F(1));
     endwin();
     return 0;
 }
