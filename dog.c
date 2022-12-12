@@ -9,7 +9,7 @@ int main() {
     char a = '@', bone = 'I';
     int c;
     int y = 5, x = 10; /* dog position */
-    int ay = (rand() % 8) + 1, ax = (rand() % 18) + 1; /*bone position */
+    int ay = (rand() % 8) + 1, ax = (rand() % 18) + 1; /* bone position */
     int score = 0;
     char map[ROWS][COLS];
 
