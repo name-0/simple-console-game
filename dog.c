@@ -17,7 +17,6 @@ int main() {
     keypad(stdscr, 1);
     noecho();
     curs_set(false);
-
     do {
         srand(time(0)); /* for random */
         /* print a map */
@@ -53,5 +52,6 @@ int main() {
         mvprintw(ROWS + 2, 0, "move - arrows, exit - F1");
     } while ((c = getch()) != KEY_F(1));
     endwin();
+	
     return 0;
 }
