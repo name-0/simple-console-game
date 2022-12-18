@@ -5,10 +5,10 @@
 #define COLS 80
 
 int main() {
-    srand(time(NULL)); /* for new values of ay/ax each new program run */
+    srand(time(NULL));            /* for random */
     char dog = '@', bone = 'I';
     int c;
-    int y = 5, x = 10; /* dog position */
+    int y = 5, x = 10;			  /* dog position */
     /* bone position */
     int ay = (rand() % (ROWS-2)) + 1;
     int ax = (rand() % (COLS-2)) + 1;
@@ -20,7 +20,6 @@ int main() {
     noecho();
     curs_set(0);
     do {
-        srand(time(NULL)); /* for random */
         /* print a map */
         for (int  i = 0; i < ROWS; ++i) {
             for (int j = 0; j < COLS; ++j) {
